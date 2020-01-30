@@ -7,7 +7,7 @@ bool ClientRequestConverter::provideClientRequest(ClientRequest& resultData, con
 {
     bool status{false};
 
-    mConvertStrategy = std::unique_ptr<JSONParser>(new JSONParser);
+    mConvertStrategy = std::make_unique<JSONParser>();
     if (mConvertStrategy) {
         status = mConvertStrategy->provideClientRequest(resultData, inputData);
     }
