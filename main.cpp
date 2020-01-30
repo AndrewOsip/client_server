@@ -3,13 +3,14 @@
 #include "Entities/ClientRequestConverter.h"
 #include "Executor/FunctionExecutor.h"
 #include "Parsers/JSONParser.h"
+#include "Serializor/JSONSerializor.h"
 
 int main()
 {
     ClientRequest requestData;
     ClientRequestConverter converter;
 
-    const char* data = "{\"funcName\":\"division\",\"params\": {\"value1\": 4, \"value2\": 2}}";
+    const char* data = "{\"funcName\":\"summ\",\"params\": {\"value1\": 4, \"value2\": 2}}";
     converter.provideClientRequest(requestData, data);
 /*
     const char* data = "<xml>\
@@ -26,8 +27,8 @@ int main()
     FunctionExecutor executor;
     executor.ExecuteCommand(requestData);
 
-    JSONParser JDes;
-    JDes.desserializeData(requestData);
+    JSONSerializer JSer;
+    JSer.serializeData(requestData);
 
     return 0;
 }

@@ -29,6 +29,4 @@ void FunctionExecutor::ExecuteCommand(ClientRequest& resultData)
 {
     int result = runCommand(resultData);
     resultData.resultOperation = result;
-
-    std::cout << "result of " << resultData.functionName << " = " << result << std::endl;
 }
