@@ -34,7 +34,7 @@ bool JSONParser::provideClientRequest(ClientRequest& resultData, const std::stri
     return true;
 }
 
-void JSONParser::desserializeData(ClientRequest& resultData)
+std::string JSONParser::desserializeData(ClientRequest& resultData)
 {
     this->operationName = resultData.functionName;
     this->operationResult = resultData.resultOperation;
@@ -51,15 +51,15 @@ void JSONParser::desserializeData(ClientRequest& resultData)
     json_val.SetString(operationName.c_str(), allocator);
     currentDocument.AddMember("funcName", json_val, allocator);
 
-    static const char* members[] = { "value", "funcName" };
-    for(size_t i = 0; i < sizeof(members)/sizeof(members[0]); i++)
-    {
-        if(!currentDocument.HasMember(members[i]))
-                        throw std::runtime_error("missing fields");
-    }
-//__________Теперь ебу как из этого получить файл JSON______________
-    int value = currentDocument["value"].GetInt();
-    std::string funcName = currentDocument["funcName"].GetString();
-//__________________________________________________________________
-    std::cout << funcName << " = " << value << std::endl; // показываю что 2 значения уже в файле просто их достал
+
+    rapidjson::StringBuffer buffer;
+
+    rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
+    currentDocument.Accept(writer);
+
+    const std::string& str = buffer.GetString();
+    std::cout << "Serialized:" << std::endl;
+    std::cout << str << std::endl;
+
+    return str;
 }
