@@ -10,15 +10,16 @@ int main()
     ClientRequest requestData;
     ClientRequestConverter converter;
 
-    const char* data = "{\"funcName\":\"summ\",\"params\": {\"value1\": 4, \"value2\": 2}}";
+    const char* data = "{\"Mathematical_action\":\"multipl\",\"parameter\": {\"value1\": 4, \"value2\": 2}}";
+    std::cout << data << std::endl;
     converter.provideClientRequest(requestData, data);
 /*
     const char* data = "<xml>\
-                            <funcName>multipl</funcName>\
-                                <params>\
+                            <Mathematical_action>multipl</mathematical_action>\
+                                <parameter>\
                                     <value1>4</value1>\
                                     <value2>2</value2>\
-                                </params>\
+                                </parameter>\
                        </xml>";
 
 

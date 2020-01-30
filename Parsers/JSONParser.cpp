@@ -17,9 +17,9 @@ bool JSONParser::provideClientRequest(ClientRequest& resultData, const std::stri
         throw std::runtime_error("document is not an Object");
     }
 
-    resultData.functionName = questionDocument["funcName"].GetString();
+    resultData.functionName = questionDocument["Mathematical_action"].GetString();
 
-    const auto& params = questionDocument["params"].GetObject();
+    const auto& params = questionDocument["parameter"].GetObject();
     for (const auto& item : params) {
         resultData.mapParams[item.name.GetString()] = item.value.GetInt();
     }

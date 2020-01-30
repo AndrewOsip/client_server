@@ -18,11 +18,11 @@ bool XmlParser::provideClientRequest(ClientRequest &resultData, const std::strin
     }
     currentDocument.document_element();
 
-    resultData.functionName = currentDocument.child("xml").child("funcName").text().as_string();
-    pugi::xml_node params = currentDocument.child("xml").child("params");
+    resultData.functionName = currentDocument.child("xml").child("Mathematical_action").text().as_string();
+    pugi::xml_node params = currentDocument.child("xml").child("parameter");
 
-    if (currentDocument.child("xml").child("params").child("value1") == nullptr ||
-        currentDocument.child("xml").child("params").child("value2") == nullptr) {
+    if (currentDocument.child("xml").child("parameter").child("value1") == nullptr ||
+        currentDocument.child("xml").child("parameter").child("value2") == nullptr) {
         std::cout << "You miss operand" << std::endl;
         return false;
     }

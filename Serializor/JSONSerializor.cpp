@@ -20,9 +20,9 @@ std::string JSONSerializer::serializeData(ClientRequest &resultData)
     answerDocument.SetObject();
 
     json_val.SetString(operationName.c_str(), allocator);
-    answerDocument.AddMember("funcName", json_val, allocator);
+    answerDocument.AddMember("Mathematical_action", json_val, allocator);
     json_val.SetInt(operationResult);
-    answerDocument.AddMember("value", json_val, allocator);
+    answerDocument.AddMember("answer", json_val, allocator);
 
     rapidjson::StringBuffer buffer;
 
