@@ -1,6 +1,4 @@
-#include <vector>
 #include <algorithm>
-#include <iterator>
 #include <iostream>
 
 #include "Parsers/JSONParser.h"
@@ -45,12 +43,10 @@ std::string JSONParser::desserializeData(ClientRequest& resultData)
 
     currentDocument.SetObject();
 
-    json_val.SetInt(operationResult);
-    currentDocument.AddMember("value", json_val, allocator);
-
     json_val.SetString(operationName.c_str(), allocator);
     currentDocument.AddMember("funcName", json_val, allocator);
-
+    json_val.SetInt(operationResult);
+    currentDocument.AddMember("value", json_val, allocator);
 
     rapidjson::StringBuffer buffer;
 
