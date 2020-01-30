@@ -15,6 +15,9 @@ set(SOURCES
     	Parsers/XmlParser.cpp
     	Parsers/JSONParser.cpp
     	Parsers/IDataParser.cpp
+	
+	Serializor/ISerializor.cpp
+	Serializor/JSONSerializor.cpp
 )
 
 add_executable(server ${SOURCES})
