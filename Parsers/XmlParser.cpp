@@ -3,7 +3,6 @@
 #include <iterator>
 #include <iostream>
 
-#include "Parsers/JSONParser.h"
 #include "Parsers/XmlParser.h"
 
 #include "pugi/src/pugixml.hpp"
@@ -18,7 +17,7 @@ bool XmlParser::provideClientRequest(ClientRequest &resultData, const std::strin
     }
     currentDocument.document_element();
 
-    resultData.functionName = currentDocument.child("xml").child("Mathematical_action").text().as_string();
+    resultData.functionName = currentDocument.child("xml").child("funcName").text().as_string();
     pugi::xml_node params = currentDocument.child("xml").child("parameter");
 
     if (currentDocument.child("xml").child("parameter").child("value1") == nullptr ||

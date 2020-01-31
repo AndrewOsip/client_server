@@ -18,6 +18,7 @@ set(SOURCES
 	
 	Serializor/ISerializor.cpp
 	Serializor/JSONSerializor.cpp
+	Serializor/XMLSerializor.cpp
 )
 
 add_executable(server ${SOURCES})
