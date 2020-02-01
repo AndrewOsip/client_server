@@ -4,7 +4,7 @@
 #include "json/usr/include/rapidjson/writer.h"
 #include "json/usr/include/rapidjson/stringbuffer.h"
 
-#include "InitialConditions.h"
+#include "JsonInitialConditions.h"
 
 int main()
 {
@@ -19,7 +19,7 @@ int main()
     std::cin >> secondParam;
 */
 
-    InitialConditions iC(funcName, firstParam, secondParam);
+    JsonInitialConditions iC(funcName, firstParam, secondParam);
     iC.toJson(); // <--Данные на отправку
 
 
