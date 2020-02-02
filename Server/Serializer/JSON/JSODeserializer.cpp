@@ -1,14 +1,14 @@
 #include <algorithm>
 #include <iostream>
 
-#include "Deserializer/JSONDeserializer.h"
+#include "Serializer/JSON/JSONSerializer.h"
 #include "Executor/FunctionExecutor.h"
 
-#include "json/usr/include/rapidjson/document.h"
-#include "json/usr/include/rapidjson/writer.h"
-#include "json/usr/include/rapidjson/stringbuffer.h"
+#include "lib/json/usr/include/rapidjson/document.h"
+#include "lib/json/usr/include/rapidjson/writer.h"
+#include "lib/json/usr/include/rapidjson/stringbuffer.h"
 
-bool JSONDeserializer::provideClientRequest(ClientRequest& resultData, const std::string& inputData)
+bool JSONSerializer::provideClientRequest(ClientRequest& resultData, const std::string& inputData)
 {
     rapidjson::Document questionDocument;
     questionDocument.Parse(inputData.c_str());

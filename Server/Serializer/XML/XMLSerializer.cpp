@@ -2,10 +2,10 @@
 #include <iostream>
 #include <sstream>
 
-#include "Serializer/XMLSerializer.h"
+#include "Serializer/XML/XMLSerializer.h"
 #include "Executor/FunctionExecutor.h"
 
-#include "pugi/src/pugixml.hpp"
+#include "lib/pugi/src/pugixml.hpp"
 
 bool XMLSerializer::serializeData(ClientRequest &resultData, ServerResult& result)
 {

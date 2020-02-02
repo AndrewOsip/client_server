@@ -1,9 +1,12 @@
 #pragma once
 
-#include "Deserializer/IDeserializer.h"
+#include "Serializer/ISerializer.h"
 
-class JSONDeserializer : public IDeserializer
+class XmlDeserializer : public ISerializer
 {
 public:
     bool provideClientRequest(ClientRequest& resultData, const std::string& inputData) override;
 };
+
+
+

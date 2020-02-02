@@ -1,13 +1,13 @@
 #include "Converter/ClientRequestConverter.h"
 
-#include "Deserializer/JSONDeserializer.h"
-#include "Deserializer/XmlDeserializer.h"
+#include "Serializer/JSON/JSONSerializer.h"
+#include "Serializer/XML/XmlDeserializer.h"
 
 bool ClientRequestConverter::provideClientRequest(ClientRequest& resultData, const std::string& inputData)
 {
     bool status{false};
 
-    mConvertStrategy = std::make_unique<JSONDeserializer>();
+    mConvertStrategy = std::make_unique<JSONSerializer>();
     if (mConvertStrategy) {
         status = mConvertStrategy->provideClientRequest(resultData, inputData);
     }

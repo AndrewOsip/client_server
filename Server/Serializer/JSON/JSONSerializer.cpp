@@ -1,10 +1,10 @@
 #include <iostream>
 
-#include "Serializer/JSONSerializer.h"
+#include "Serializer/JSON/JSONSerializer.h"
 
-#include "json/usr/include/rapidjson/document.h"
-#include "json/usr/include/rapidjson/writer.h"
-#include "json/usr/include/rapidjson/stringbuffer.h"
+#include "lib/json/usr/include/rapidjson/document.h"
+#include "lib/json/usr/include/rapidjson/writer.h"
+#include "lib/json/usr/include/rapidjson/stringbuffer.h"
 
 bool JSONSerializer::serializeData(ClientRequest &resultData, ServerResult& result)
 {

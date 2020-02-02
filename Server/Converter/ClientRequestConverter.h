@@ -3,7 +3,7 @@
 #include <memory>
 #include <string>
 
-#include "Deserializer/IDeserializer.h"
+#include "Serializer/ISerializer.h"
 #include "Entities/ClientRequest.h"
 
 class ClientRequestConverter
@@ -11,5 +11,5 @@ class ClientRequestConverter
 public:
     bool provideClientRequest(ClientRequest& resultData, const std::string& inputData);
 private:
-    std::unique_ptr<IDeserializer> mConvertStrategy;
+    std::unique_ptr<ISerializer> mConvertStrategy;
 };

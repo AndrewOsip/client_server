@@ -2,10 +2,10 @@
 
 #include "Converter/ClientRequestConverter.h"
 #include "Executor/FunctionExecutor.h"
-#include "Deserializer/JSONDeserializer.h"
-#include "Deserializer/XmlDeserializer.h"
-#include "Serializer/JSONSerializer.h"
-#include "Serializer/XMLSerializer.h"
+#include "Serializer/JSON/JSONDeserializer.h"
+#include "Serializer/XML/XmlDeserializer.h"
+#include "Serializer/JSON/JSONSerializer.h"
+#include "Serializer/XML/XMLSerializer.h"
 #include "Entities/ServerResult.h"
 
 int main()
