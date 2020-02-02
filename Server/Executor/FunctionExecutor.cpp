@@ -9,7 +9,7 @@ const std::map<std::string, std::function<int(int, int)>> STORAGE = {
 {"summ", [](int firstValue, int secondValue) { return firstValue + secondValue;}},
 {"division", [](int firstValue, int secondValue) { return firstValue / secondValue;}},
 {"multipl", [](int firstValue, int secondValue) { return firstValue * secondValue;}},
-{"subtraction", [](int firstValue, int secondValue) { return firstValue - secondValue;}}
+{"subtr", [](int firstValue, int secondValue) { return firstValue - secondValue;}}
 }; }
 
 int FunctionExecutor::runCommand(ClientRequest& resultData)
@@ -25,8 +25,7 @@ int FunctionExecutor::runCommand(ClientRequest& resultData)
     return resultOperation;
 }
 
-void FunctionExecutor::ExecuteCommand(ClientRequest& resultData)
+void FunctionExecutor::ExecuteCommand(ClientRequest& resultData, ServerResult& result)
 {
-    int result = runCommand(resultData);
-    resultData.resultOperation = result;
+    result.operationResult = runCommand(resultData);
 }

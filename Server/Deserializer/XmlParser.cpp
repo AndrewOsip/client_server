@@ -3,11 +3,11 @@
 #include <iterator>
 #include <iostream>
 
-#include "Parsers/XmlParser.h"
+#include "Deserializer/XmlDeserializer.h"
 
 #include "pugi/src/pugixml.hpp"
 
-bool XmlParser::provideClientRequest(ClientRequest &resultData, const std::string &inputData)
+bool XmlDeserializer::provideClientRequest(ClientRequest &resultData, const std::string &inputData)
 {
     pugi::xml_document currentDocument;
     pugi::xml_parse_result result = currentDocument.load_buffer(inputData.c_str(),

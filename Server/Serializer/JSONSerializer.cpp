@@ -1,17 +1,14 @@
-#include <algorithm>
 #include <iostream>
 
-#include "Serializor/JSONSerializor.h"
-#include "Executor/FunctionExecutor.h"
+#include "Serializer/JSONSerializer.h"
 
 #include "json/usr/include/rapidjson/document.h"
 #include "json/usr/include/rapidjson/writer.h"
 #include "json/usr/include/rapidjson/stringbuffer.h"
 
-std::string JSONSerializer::serializeData(ClientRequest &resultData)
+bool JSONSerializer::serializeData(ClientRequest &resultData, ServerResult& result)
 {
-    this->operationName = resultData.functionName;
-    this->operationResult = resultData.resultOperation;
+    result.operationName = resultData.functionName;
 
     rapidjson::Value json_val;
     rapidjson::Document answerDocument;
@@ -19,9 +16,9 @@ std::string JSONSerializer::serializeData(ClientRequest &resultData)
 
     answerDocument.SetObject();
 
-    json_val.SetString(operationName.c_str(), allocator);
+    json_val.SetString(result.operationName.c_str(), allocator);
     answerDocument.AddMember("Mathematical_action", json_val, allocator);
-    json_val.SetInt(operationResult);
+    json_val.SetInt(result.operationResult);
     answerDocument.AddMember("answer", json_val, allocator);
 
     rapidjson::StringBuffer buffer;
@@ -31,7 +28,8 @@ std::string JSONSerializer::serializeData(ClientRequest &resultData)
 
     const std::string& str = buffer.GetString();
     std::cout << "Serialized:" << std::endl;
-    std::cout << str << std::endl;
+    result.answer = str;
+    std::cout << result.answer << std::endl;
 
-    return str;
+    return true;
 }

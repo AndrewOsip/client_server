@@ -2,9 +2,8 @@
 
 #include "Entities/ClientRequest.h"
 
-class IDataParser
+class IDeserializer
 {
 public:
     virtual bool provideClientRequest(ClientRequest& resultData, const std::string& inputData) = 0;
-    virtual ~IDataParser() =0 ;
 };

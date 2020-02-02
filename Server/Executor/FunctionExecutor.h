@@ -7,7 +7,7 @@
 class FunctionExecutor : public IExecutor
 {
 public:
-    void ExecuteCommand(ClientRequest& resultData) override;
+    void ExecuteCommand(ClientRequest& resultData, ServerResult& result) override;
 
 private:
     int runCommand(ClientRequest& resultData);

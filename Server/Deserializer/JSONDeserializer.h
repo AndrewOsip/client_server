@@ -1,8 +1,8 @@
 #pragma once
 
-#include "Parsers/IDataParser.h"
+#include "Deserializer/IDeserializer.h"
 
-class JSONParser : public IDataParser
+class JSONDeserializer : public IDeserializer
 {
 public:
     bool provideClientRequest(ClientRequest& resultData, const std::string& inputData) override;
