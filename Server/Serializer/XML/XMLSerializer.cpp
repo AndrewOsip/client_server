@@ -22,7 +22,6 @@ bool XMLSerializer::serializeData(ClientRequest &resultData, ServerResult& resul
     answer.append_child(pugi::node_pcdata).set_value(oRes.c_str());
 
     std::cout << "Serialized:" << std::endl;
-    answerDocument.save(std::cout);
 
     std::stringstream buffer;
             answerDocument.save(buffer);

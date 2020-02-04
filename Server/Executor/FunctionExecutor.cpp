@@ -4,13 +4,12 @@
 #include <string>
 #include <functional>
 
-namespace {
 const std::map<std::string, std::function<int(int, int)>> STORAGE = {
 {"summ", [](int firstValue, int secondValue) { return firstValue + secondValue;}},
 {"division", [](int firstValue, int secondValue) { return firstValue / secondValue;}},
 {"multipl", [](int firstValue, int secondValue) { return firstValue * secondValue;}},
 {"subtr", [](int firstValue, int secondValue) { return firstValue - secondValue;}}
-}; }
+};
 
 int FunctionExecutor::runCommand(ClientRequest& resultData)
 {

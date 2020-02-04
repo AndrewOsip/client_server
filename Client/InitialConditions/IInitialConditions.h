@@ -3,9 +3,11 @@
 #include <string>
 #include <iostream>
 
+#include "InitialEntities/InitialEntities.h"
+
 class IInitialConditions
 {
 public:
-    virtual std::string toJson() = 0;
-    virtual ~IInitialConditions() =0;
+    virtual void toJson(InitialEntities& initialData) = 0;
+    virtual ~IInitialConditions() =default;
 };

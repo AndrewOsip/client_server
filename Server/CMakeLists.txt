@@ -7,19 +7,19 @@ project (server)
 
 set(SOURCES
     	main.cpp
-    	Entities/ClientRequestConverter.cpp
+
+	Connection/TCP/ClientWorker/TCPConncetion.cpp
+	
+	Converter/ClientRequestConverter.cpp
 
     	Executor/IExecutor.cpp
     	Executor/FunctionExecutor.cpp
-
-    	Parsers/XmlParser.cpp
-    	Parsers/JSONParser.cpp
-    	Parsers/IDataParser.cpp
 	
-	Serializor/ISerializor.cpp
-	Serializor/JSONSerializor.cpp
-	Serializor/XMLSerializor.cpp
-
+	Serializer/JSON/JSONSerializer.cpp
+	Serializer/JSON/JSONDeserializer.cpp
+	Serializer/XML/XmlDeserializer.cpp
+	Serializer/XML/XMLSerializer.cpp
+	
 )
 
 add_executable(server ${SOURCES})
@@ -30,7 +30,7 @@ include_directories(server
 )
 
 
-add_subdirectory(pugi)
+add_subdirectory(lib/pugi)
 target_link_libraries(server pugixml)
 
 get_filename_component(RAPIDJSON_CMAKE_DIR "${CMAKE_CURRENT_LIST_FILE}" PATH)

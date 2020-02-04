@@ -1,7 +1,7 @@
 #include "Converter/ClientRequestConverter.h"
 
 #include "Serializer/JSON/JSONSerializer.h"
-#include "Serializer/XML/XmlDeserializer.h"
+#include "Serializer/XML/XMLSerializer.h"
 
 bool ClientRequestConverter::provideClientRequest(ClientRequest& resultData, const std::string& inputData)
 {
@@ -12,7 +12,7 @@ bool ClientRequestConverter::provideClientRequest(ClientRequest& resultData, con
         status = mConvertStrategy->provideClientRequest(resultData, inputData);
     }
 /*
-    mConvertStrategy = std::make_unique<XmlDeserializer>();
+    mConvertStrategy = std::make_unique<XMLSerializer>();
     if (mConvertStrategy) {
         status = mConvertStrategy->provideClientRequest(resultData, inputData);
     }

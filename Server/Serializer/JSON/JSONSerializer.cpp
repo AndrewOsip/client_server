@@ -27,7 +27,7 @@ bool JSONSerializer::serializeData(ClientRequest &resultData, ServerResult& resu
     answerDocument.Accept(writer);
 
     const std::string& str = buffer.GetString();
-    std::cout << "Serialized:" << std::endl;
+    std::cout << "Serialized:" << "\n" << std::endl;
     result.answer = str;
     std::cout << result.answer << std::endl;
 
