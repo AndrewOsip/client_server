@@ -1,18 +1,7 @@
-#include <iostream>
-#include <stdio.h>
-#include <stdlib.h>
-#include <netdb.h>
-#include <netinet/in.h>
-#include <string.h>
-
 #include "Converter/ClientRequestConverter.h"
 #include "Executor/FunctionExecutor.h"
-#include "Serializer/JSON/JSONDeserializer.h"
-#include "Serializer/XML/XmlDeserializer.h"
 #include "Serializer/JSON/JSONSerializer.h"
 #include "Serializer/XML/XMLSerializer.h"
-#include "Entities/ServerResult.h"
-
 #include "Connection/TCP/ClientWorker/TCPConnection.h"
 #include "Connection/TCP/TCPEntities/TCPEntities.h"
 #include "Connection/IConnection.h"

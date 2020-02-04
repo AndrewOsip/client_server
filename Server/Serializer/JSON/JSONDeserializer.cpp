@@ -1,12 +1,4 @@
-#include <algorithm>
-#include <iostream>
-
 #include "Serializer/JSON/JSONSerializer.h"
-#include "Executor/FunctionExecutor.h"
-
-#include "lib/json/usr/include/rapidjson/document.h"
-#include "lib/json/usr/include/rapidjson/writer.h"
-#include "lib/json/usr/include/rapidjson/stringbuffer.h"
 
 bool JSONSerializer::provideClientRequest(ClientRequest& resultData, const std::string& inputData)
 {

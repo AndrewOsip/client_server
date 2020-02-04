@@ -1,14 +1,5 @@
 #pragma once
 
-#include <iostream>
-#include <stdio.h>
-#include <stdlib.h>
-#include <netdb.h>
-#include <netinet/in.h>
-#include <string.h>
-#include <sys/types.h>
-#include <sys/socket.h>
-
 #include "Connection/IConnection.h"
 
 class TCPConnection : public IConnection

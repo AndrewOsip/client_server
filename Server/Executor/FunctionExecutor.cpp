@@ -1,7 +1,5 @@
-#include "Entities/ClientRequest.h"
 #include "Executor/FunctionExecutor.h"
 
-#include <string>
 #include <functional>
 
 const std::map<std::string, std::function<int(int, int)>> STORAGE = {
@@ -18,9 +16,7 @@ int FunctionExecutor::runCommand(ClientRequest& resultData)
     if (firstValueIter == std::end(resultData.mapParams) || secondValueIter == std::end(resultData.mapParams)) {
         return 0;
     }
-
     const auto& resultOperation = STORAGE.at(resultData.functionName)(firstValueIter->second, secondValueIter->second);
-
     return resultOperation;
 }
 

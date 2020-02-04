@@ -12,7 +12,6 @@ set(SOURCES
 	
 	Converter/ClientRequestConverter.cpp
 
-    	Executor/IExecutor.cpp
     	Executor/FunctionExecutor.cpp
 	
 	Serializer/JSON/JSONSerializer.cpp

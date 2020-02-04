@@ -5,8 +5,6 @@
 
 #include "Serializer/XML/XMLSerializer.h"
 
-#include "lib/pugi/src/pugixml.hpp"
-
 bool XMLSerializer::provideClientRequest(ClientRequest &resultData, const std::string &inputData)
 {
     pugi::xml_document currentDocument;

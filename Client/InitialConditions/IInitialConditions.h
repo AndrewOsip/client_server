@@ -1,8 +1,5 @@
 #pragma once
 
-#include <string>
-#include <iostream>
-
 #include "InitialEntities/InitialEntities.h"
 
 class IInitialConditions

@@ -1,36 +1,11 @@
 #include "InitialConditions/JSONSerialize/JsonInitialConditions.h"
-#include "InitialConditions/IInitialConditions.h"
 #include "InitialEntities/InitialEntities.h"
-#include "Connection/TCP/TCPEntities/TCPEntities.h"
-
-#include "json/usr/include/rapidjson/document.h"
-#include "json/usr/include/rapidjson/writer.h"
-#include "json/usr/include/rapidjson/stringbuffer.h"
-
-#include <vector>
-#include <string.h>
 
 void JsonInitialConditions::toJson(InitialEntities& initialData)
 {
     initialData.JSONAnswer = "{\"Mathematical_action\":\"" + initialData.mathematical_action +
             "\",\"parameter\": {\"value1\": " + std::to_string(initialData.value1) + ", \"value2\": " + std::to_string(initialData.value2) + "}}";
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /*create command class
 внутри себя мапа метод параметр

@@ -2,6 +2,8 @@
 
 #include "Serializer/ISerializer.h"
 
+#include "lib/pugi/src/pugixml.hpp"
+
 class XMLSerializer : public ISerializer
 {
 public:

@@ -2,6 +2,11 @@
 
 #include "Serializer/ISerializer.h"
 
+
+#include "lib/json/usr/include/rapidjson/document.h"
+#include "lib/json/usr/include/rapidjson/writer.h"
+#include "lib/json/usr/include/rapidjson/stringbuffer.h"
+
 class JSONSerializer : public ISerializer
 {
 public:

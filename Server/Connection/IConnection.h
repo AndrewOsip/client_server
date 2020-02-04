@@ -1,8 +1,5 @@
 #pragma once
 
-#include <string>
-#include <netdb.h>
-
 #include "Connection/TCP/TCPEntities/TCPEntities.h"
 #include "Entities/ServerResult.h"
 

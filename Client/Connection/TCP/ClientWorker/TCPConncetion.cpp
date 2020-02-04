@@ -1,18 +1,5 @@
-#include <iostream>
-#include <stdio.h>
-#include <stdlib.h>
-#include <netdb.h>
-#include <netinet/in.h>
-#include <string.h>
-#include <sys/types.h>
-#include <sys/socket.h>
-#include <iostream>
-#include <unistd.h>
-#include <string>
-
 #include "Connection/TCP/TCPEntities/TCPEntities.h"
 #include "Connection/TCP/ClientWorker/TCPConnection.h"
-
 
 void TCPConnection::SocketPointCreate(TCPEntities& data)
 {
@@ -33,6 +20,7 @@ void TCPConnection::SocketPointCreate(TCPEntities& data)
        bcopy((char *)data.server->h_addr, (char *)&data.serverAdress.sin_addr.s_addr, data.server->h_length);
        data.serverAdress.sin_port = htons(data.portNumber);
 }
+
 void TCPConnection::ServerConnecting(TCPEntities& data)
 {
     if (connect(data.socketDescriptor, (struct sockaddr*)&data.serverAdress, sizeof(data.serverAdress)) < 0) {
@@ -40,13 +28,14 @@ void TCPConnection::ServerConnecting(TCPEntities& data)
           exit(1);
        }
 }
+
 void TCPConnection::MessageFromUser(TCPEntities& data, InitialEntities& initialData)
 {
-    std::cout << "message: " << data.buffer << std::endl;
     strcpy(data.buffer, initialData.JSONAnswer.c_str());
-
+    std::cout << "message: " << data.buffer << std::endl;
 }
-void TCPConnection::MessageToServerSending(TCPEntities& data, InitialEntities& initialData)
+
+void TCPConnection::MessageToServerSending(TCPEntities& data)
 {
     data.dataStorage = write(data.socketDescriptor, data.buffer, strlen(data.buffer));
 
@@ -55,10 +44,11 @@ void TCPConnection::MessageToServerSending(TCPEntities& data, InitialEntities& i
           exit(1);
        }
 }
+
 void TCPConnection::ServerResponseReading(TCPEntities& data)
 {
     bzero(data.buffer,2048);
-       data.dataStorage = read(data.socketDescriptor, data.buffer, 1023);
+       data.dataStorage = read(data.socketDescriptor, data.buffer, 2047);
 
        if (data.dataStorage < 0) {
           perror("ERROR reading from socket");
