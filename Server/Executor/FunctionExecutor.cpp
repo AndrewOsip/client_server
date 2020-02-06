@@ -16,7 +16,13 @@ int FunctionExecutor::runCommand(ClientRequest& resultData)
     if (firstValueIter == std::end(resultData.mapParams) || secondValueIter == std::end(resultData.mapParams)) {
         return 0;
     }
-    const auto& resultOperation = STORAGE.at(resultData.functionName)(firstValueIter->second, secondValueIter->second);
+    
+    int resultOperation{0};
+    auto findIter = STORAGE.find(resultData.functionName);
+    if (findIter != std::end(STORAGE)) {
+        resultOperation = findIter->second(firstValueIter->second, secondValueIter->second);
+    }
+
     return resultOperation;
 }
 
