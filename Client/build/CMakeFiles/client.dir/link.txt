@@ -1,1 +1,0 @@
-/usr/bin/c++     CMakeFiles/client.dir/main.cpp.o CMakeFiles/client.dir/Connection/TCP/ClientWorker/TCPConncetion.cpp.o CMakeFiles/client.dir/InitialConditions/JSONSerialize/JsonInitialConditions.cpp.o  -o client 
