@@ -1,1 +1,3 @@
-clent server on CMake
+To start Client open Client/build directory and in terminal use cmake.. -> make -> ./client,
+To start Server open Server/build directory and in terminal use cmake.. -> make -> ./server.
+
