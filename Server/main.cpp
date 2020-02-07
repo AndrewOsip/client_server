@@ -2,22 +2,16 @@
 #include "Executor/FunctionExecutor.h"
 #include "Serializer/JSON/JSONSerializer.h"
 #include "Serializer/XML/XMLSerializer.h"
-#include "Connection/TCP/ClientWorker/TCPConnection.h"
-#include "Connection/TCP/TCPEntities/TCPEntities.h"
-#include "Connection/IConnection.h"
+#include "IConnection/IConnection.h"
+#include "IConnection/Connection/Connection.h"
+#include "IConnection/Connection/TCP/TCP.h"
 
 int main()
 {
-    TCPEntities data;
-    TCPConnection tcpConnect;
+    TCP tcp;
     ServerResult result;
-    tcpConnect.FirstFunctionCall(data);
-    tcpConnect.SocketStructureInitalize(data);
-    tcpConnect.HostAddressBind(data);
-    tcpConnect.ClientsListening(data);
-    tcpConnect.ActualClientConnectionAccept(data);
-    tcpConnect.CommunicateStart(data);
-
+    Connection conncetion(tcp);
+    conncetion.CommunicateStart();
 
     ClientRequest requestData;
     ClientRequestConverter converter;
@@ -31,7 +25,8 @@ int main()
                                 </parameter>\
                        </xml>";
 */
-    converter.provideClientRequest(requestData, data.buffer);
+    converter.provideClientRequest(requestData, conncetion.mBuffer);
+
 
     FunctionExecutor executor;
     executor.ExecuteCommand(requestData, result);
@@ -43,6 +38,9 @@ int main()
     XSer.serializeData(requestData, result);
     return 0;
 */
-    tcpConnect.ClientResponseWriting(data, result);
+
+    conncetion.ClientResponseWriting(result);
+
+    return 0;
 }
 

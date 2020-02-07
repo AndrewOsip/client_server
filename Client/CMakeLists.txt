@@ -8,7 +8,7 @@ project (client)
 set(SOURCES
     	main.cpp
 	
-	Connection/TCP/ClientWorker/TCPConncetion.cpp
+	IConnection/Connection/Connection.cpp
 	InitialConditions/JSONSerialize/JsonInitialConditions.cpp   	
 )
 

@@ -1,14 +1,16 @@
 #include "InitialEntities/InitialEntities.h"
 
-#include "Connection/TCP/TCPEntities/TCPEntities.h"
-#include "Connection/TCP/ClientWorker/TCPConnection.h"
+#include "IConnection/IConnection.h"
+#include "IConnection/Connection/Connection.h"
+#include "IConnection/Connection/TCP/ClientWorker/TCP.h"
 #include "InitialConditions/JSONSerialize/JsonInitialConditions.h"
 
 int main()
 {
+    //Connection::Connection(int networkType, int port)
+    //Connection(tcp.mPortNumber,tcp.mPortNumber, tcp.mHost);
+
     InitialEntities initialData;
-    TCPEntities data;
-    TCPConnection tcpConnect;
 
     std::cout << "Enter Math_action(summ, division, multipl, substr): " << std::endl;
     std::cin >> initialData.mathematical_action;
@@ -19,14 +21,12 @@ int main()
 
     JsonInitialConditions jic;
     jic.toJson(initialData);
+    TCP tcp;
+    Connection connect(tcp);
+    connect.messageFromUser(initialData);
+    connect.messageToServerSending();
+    connect.serverResponseReading();
 
-    data.portNumber = 8888;
-    data.server = gethostbyname("0");
-    tcpConnect.SocketPointCreate(data);
-    tcpConnect.ServerConnecting(data);
-    tcpConnect.MessageFromUser(data, initialData);
-    tcpConnect.MessageToServerSending(data);
-    tcpConnect.ServerResponseReading(data);
 
     return 0;
 }

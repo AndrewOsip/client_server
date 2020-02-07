@@ -8,8 +8,7 @@ project (server)
 set(SOURCES
     	main.cpp
 
-	Connection/TCP/ClientWorker/TCPConncetion.cpp
-	
+	IConnection/Connection/Connection.cpp
 	Converter/ClientRequestConverter.cpp
 
     	Executor/FunctionExecutor.cpp

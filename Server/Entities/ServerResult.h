@@ -9,4 +9,5 @@ public:
     std::string operationName;
     int operationResult;
     std::string answer;
+    char buffer[1024];
 };
