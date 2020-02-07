@@ -2,7 +2,7 @@
 
 #include "IConnection/IConnection.h"
 #include "IConnection/Connection/Connection.h"
-#include "IConnection/Connection/TCP/ClientWorker/TCP.h"
+#include "IConnection/Connection/TCP/TCP.h"
 #include "InitialConditions/JSONSerialize/JsonInitialConditions.h"
 
 int main()

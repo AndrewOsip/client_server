@@ -29,7 +29,7 @@ void Connection::socketInit(int portNumber, int networkType) {
     }
 }
 
-void Connection::CommunicateStart()
+void Connection::communicateStart()
 {
     bzero(mBuffer,1024);
     mDataStorage = read(mNewSocketDescriptor, mBuffer, 1023);
@@ -40,7 +40,7 @@ void Connection::CommunicateStart()
     std::cout << "message:" << mBuffer << std::endl;
 }
 
-void Connection::ClientResponseWriting(ServerResult& result)
+void Connection::clientResponseWriting(ServerResult& result)
 {
     std::string clientAnswerString = "Result of " + result.operationName + " = " + std::to_string(result.operationResult);
     strcpy(mBuffer, clientAnswerString.c_str());

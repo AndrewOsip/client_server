@@ -13,8 +13,8 @@ public:
         socketInit(portNumber, networkType);
     }
 
-    void CommunicateStart() override;
-    void ClientResponseWriting(ServerResult& result) override;
+    void communicateStart() override;
+    void clientResponseWriting(ServerResult& result) override;
 private:
     void socketInit(int portNumber, int networkType);
 

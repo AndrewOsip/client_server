@@ -9,7 +9,7 @@ class IConnection
 public:
     virtual ~IConnection() =default;
 
-    virtual void CommunicateStart() =0;
-    virtual void ClientResponseWriting(ServerResult& result) =0;
+    virtual void communicateStart() =0;
+    virtual void clientResponseWriting(ServerResult& result) =0;
 
 };

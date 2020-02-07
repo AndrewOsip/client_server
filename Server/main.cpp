@@ -11,7 +11,7 @@ int main()
     TCP tcp;
     ServerResult result;
     Connection conncetion(tcp);
-    conncetion.CommunicateStart();
+    conncetion.communicateStart();
 
     ClientRequest requestData;
     ClientRequestConverter converter;
@@ -39,7 +39,7 @@ int main()
     return 0;
 */
 
-    conncetion.ClientResponseWriting(result);
+    conncetion.clientResponseWriting(result);
 
     return 0;
 }

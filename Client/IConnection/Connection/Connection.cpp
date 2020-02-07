@@ -1,8 +1,5 @@
 #include "IConnection/Connection/Connection.h"
 
-//Connection::Connection(int networkType, int port, hostent* host): mPortNumber{port} {}
-
-
 void Connection::socketInit(int networkType, int port, hostent *host)
 {
     this->mHost = host;
