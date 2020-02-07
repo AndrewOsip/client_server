@@ -1,3 +1,0 @@
-/home/andrew/server/Client/build/CMakeFiles/rebuild_cache.dir
-/home/andrew/server/Client/build/CMakeFiles/client.dir
-/home/andrew/server/Client/build/CMakeFiles/edit_cache.dir
